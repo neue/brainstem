@@ -1,0 +1,21 @@
+#!/usr/local/bin/node
+var exec = require('child_process').exec;
+var child;
+command = "ps -e -r -o pid"
+var ps;
+child = exec(command,
+   function (error, stdout, stderr) {
+      output(stdout);
+});
+
+var regex = /([0-9])\w+/
+
+function output(str){
+    var lines = str.split(/\r?\n/);
+    lines.shift();
+    try{
+        output = lines[0].match(regex)[0] + "," + lines[1].match(regex)[0] + "," +lines[2].match(regex)[0]+ "," +lines[3].match(regex)[0]+ "," +lines[4].match(regex)[0];
+    } catch(err){console.log("3,3,3,3,3");}
+    // console.log(lines[0]);console.log(lines[1]);console.log(lines[2]);
+    console.log(output);   
+}
