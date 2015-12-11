@@ -25,40 +25,56 @@ void ofApp::setup(){
     orange3.set(255, 183, 118);
     orange4.set(255, 207, 165);
     orange5.set(255, 232, 210);
+    led1 = false;
+    led2 = false;
+    led3 = false;
+    led4 = false;
+    led5 = false;
+    
     
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     float timer = ofGetElapsedTimeMillis() - startTime;
+//    if(timer >= endTime-(470*1) && !led1) {ledOn(ofMap(pi1, 1, maxPid, 1, 11),orange1);led1=true;}
+//    if(timer >= endTime-(470*2) && !led2) {ledOn(ofMap(pi2, 1, maxPid, 1, 11),orange1);led2=true;}
+//    if(timer >= endTime-(470*3) && !led3) {ledOn(ofMap(pi3, 1, maxPid, 1, 11),orange1);led3=true;}
+//    if(timer >= endTime-(470*4) && !led4) {ledOn(ofMap(pi4, 1, maxPid, 1, 11),orange1);led4=true;}
+//    if(timer >= endTime-(470*5) && !led5) {ledOn(ofMap(pi5, 1, maxPid, 1, 11),ofColor::red);led5=true;}
+
     if(timer >= endTime && !timerReached) {
+//        led1 = false;
+//        led2 = false;
+//        led3 = false;
+//        led4 = false;
+//        led5 = false;
         startTime = ofGetElapsedTimeMillis();
         endTime = 1500;
         maxPid =  ofToInt(ofSystem("/brainmax"));
         topPids = ofSystem("/brainscan");
-        ofLog() << topPids;
         vector<string> c = ofSplitString(topPids, ",");
         string ps1 = c[0];
-        int pi1 = ofToInt(ps1);
+        pi1 = ofToInt(ps1);
         string ps2 = c[1];
-        int pi2 = ofToInt(ps2);
+        pi2 = ofToInt(ps2);
         string ps3 = c[2];
-        int pi3 = ofToInt(ps3);
+        pi3 = ofToInt(ps3);
         string ps4 = c[3];
-        int pi4 = ofToInt(ps4);
+        pi4 = ofToInt(ps4);
         string ps5 = c[4];
-        int pi5 = ofToInt(ps5);
+        pi5 = ofToInt(ps5);
 //        ofLog() << "Max: " << maxPid << " A:" << ps1 << " B:" << ps2 << " C:" << ps3;
 //        ofLog() << floor(ofMap(pi1, 1, maxPid, 1, 10)) << ":" << floor(ofMap(pi2, 1, maxPid, 1, 10)) << ":" << floor(ofMap(pi3, 1, maxPid, 1, 10));
         
         
-        ledOn(ofMap(pi1, 1, maxPid, 1, 11),orange1);
         ledOn(ofMap(pi2, 1, maxPid, 1, 11),orange2);
         ledOn(ofMap(pi3, 1, maxPid, 1, 11),orange3);
         ledOn(ofMap(pi4, 1, maxPid, 1, 11),orange4);
         ledOn(ofMap(pi5, 1, maxPid, 1, 11),orange5);
-        
-        
+        ledOn(ofMap(pi1, 1, maxPid, 1, 11),ofColor::red);
+
+
 //        ofSeedRandom(pi1);
 //        ledOn(ofRandom(0,10),orange1);
 //        ofSeedRandom(pi2);

@@ -25,8 +25,8 @@ class ofApp : public ofBaseApp{
 		
     float startTime;
     float endTime;
-    bool  timerReached;
-    
+    bool  timerReached,led1,led2,led3,led4,led5;
+    int pi1,pi2,pi3,pi4,pi5;
     ofColor orange1,orange2,orange3,orange4,orange5;
     
     ofColor col1, col2, col3, col4, col5, col6, col7, col8, col9, col10;
