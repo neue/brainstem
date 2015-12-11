@@ -44,6 +44,7 @@ void ofApp::update(){
 //    if(timer >= endTime-(470*5) && !led5) {ledOn(ofMap(pi5, 1, maxPid, 1, 11),ofColor::red);led5=true;}
 
     if(timer >= endTime && !timerReached) {
+        ledsReset();
 //        led1 = false;
 //        led2 = false;
 //        led3 = false;
@@ -88,7 +89,7 @@ void ofApp::update(){
         
     }
 
-    fadeLeds();
+    // fadeLeds();
 }
 
 //--------------------------------------------------------------
@@ -166,6 +167,19 @@ void ofApp::fadeLeds(){
     col8.setSaturation(col8.getSaturation()-5);
     col9.setSaturation(col9.getSaturation()-5);
     col10.setSaturation(col10.getSaturation()-5);
+}
+//--------------------------------------------------------------
+void ofApp::ledsReset(){
+    col1.set(255,255,255);
+    col2.set(255,255,255);
+    col3.set(255,255,255);
+    col4.set(255,255,255);
+    col5.set(255,255,255);
+    col6.set(255,255,255);
+    col7.set(255,255,255);
+    col8.set(255,255,255);
+    col9.set(255,255,255);
+    col10.set(255,255,255);
 }
 
 //--------------------------------------------------------------

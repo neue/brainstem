@@ -22,6 +22,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
         void ledOn(int led,ofColor newcol);
         void fadeLeds();
+        void ledsReset();
 		
     float startTime;
     float endTime;
